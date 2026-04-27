@@ -8,6 +8,7 @@ def is_valid(place):
         for j in range(5):
             if place[i][j] != 'P':
                 continue
+            # P일때만 방문을 탐색한다.
             visited = [[False]*5 for _ in range(5)]
             queue = deque()
             queue.append((i,j,0))
@@ -17,6 +18,7 @@ def is_valid(place):
                 x,y,dist = queue.popleft()
                 if dist >= 2:
                     continue
+                # 맨해튼 거리가 2 이하일 때만 탐지
                 for d in range(4):
                     nx = x+dx[d]
                     ny = y+dy[d]
